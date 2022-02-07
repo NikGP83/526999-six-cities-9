@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов»
 
 * Студент: [Николай Головин](https://up.htmlacademy.ru/react/9/user/526999).
-* Наставник: [Максим Волков](https://htmlacademy.ru/profile/id1508839).
+* Наставник: [Максим Волков](https://htmlacademy.ru/profile/id1508839). 
 
 ---
 
