@@ -15,7 +15,7 @@ function CitieItem() {
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
-            <svg className="place-card__bookmark-icon" width="18" height="19">
+            <svg className="place-card__bookmark-icon" style={{width:'18', height:'19'}}>
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
             <span className="visually-hidden">In bookmarks</span>
@@ -23,7 +23,7 @@ function CitieItem() {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style="width: 80%"></span>
+            <span style={{width: '80%'}}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -33,7 +33,7 @@ function CitieItem() {
         <p className="place-card__type">Private room</p>
       </div>
     </article>
-  )
+  );
 }
 
 export default CitieItem;

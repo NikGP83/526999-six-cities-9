@@ -7,7 +7,7 @@ function CiteTabItem() {
         <span>Paris</span>
       </a>
     </li>
-  )
+  );
 }
 
 export default CiteTabItem;

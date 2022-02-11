@@ -1,4 +1,4 @@
-import CitieItem from '../citie-item/citie-item';
+import CiteTabItem from '../citie-tab-item/citie-tab-item';
 
 
 function CitiesNavTabs() {
@@ -6,7 +6,7 @@ function CitiesNavTabs() {
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          <CitieItem />
+          <CiteTabItem />
         </ul>
       </section>
     </div>
