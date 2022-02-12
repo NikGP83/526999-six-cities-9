@@ -2,7 +2,7 @@ import { IHotels } from '../../types/types';
 import CitieItem from '../citie-item/citie-item';
 
 function CitiesList({ ...hotels }) {
-
+console.log(hotels, `citylist`)
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
@@ -23,10 +23,8 @@ function CitiesList({ ...hotels }) {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {hotels.map((hotel: IHotels) => {
-          return <CitieItem key={hotel.id} hotel={hotel} />
-        })
-        }
+      <CitieItem {...hotels} />
+        {/* {hotels.map((el: IHotels) =>  <CitieItem key={el.id} {...el} />)} */}
 
       </div>
     </section>

@@ -2,13 +2,13 @@ import { IHotels } from '../../types/types';
 
 
 interface ICitiesProp {
-  hotel:IHotels[]
+  l:IHotels;
 }
 
 
 
 function CitieItem(hotel:ICitiesProp) {
-console.log(hotel)
+  console.log(hotel.l)
   return (
     <article className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">

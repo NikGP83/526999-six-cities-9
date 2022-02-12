@@ -5,6 +5,7 @@ import PageHeader from '../page-header/page-header';
 
 
 function MainPage({...hotels}) {
+
   return (
 
     <div className="page page--gray page--main">
