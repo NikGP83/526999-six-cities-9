@@ -1,9 +1,10 @@
 import CitiesList from '../cities-list/cities-list';
+import CitiesMap from '../cities-map/cities-map';
 import CitiesNavTabs from '../cities-nav-tabs/cities-nav-tabs';
 import PageHeader from '../page-header/page-header';
 
 
-function MainPage() {
+function MainPage({...hotels}) {
   return (
 
     <div className="page page--gray page--main">
@@ -14,10 +15,8 @@ function MainPage() {
         <CitiesNavTabs />
         <div className="cities">
           <div className="cities__places-container container">
-            <CitiesList />
-            <div className="cities__right-section">
-              <section className="cities__map map"></section>
-            </div>
+            <CitiesList {...hotels}/>
+            <CitiesMap />
           </div>
         </div>
       </main>
