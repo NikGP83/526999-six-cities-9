@@ -1,10 +1,10 @@
-import PageHeader from '../page-header/page-header';
+import Header from '../header/header';
 
 
 function Login() {
   return (
     <>
-      <PageHeader />
+      <Header />
       <main className="page__main page__main--login">
         <div className="page__login-container container">
           <section className="login">

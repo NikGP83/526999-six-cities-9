@@ -1,11 +1,11 @@
 import Footer from '../footer/footer';
-import PageHeader from '../page-header/page-header';
+import Header from '../header/header';
 
 
 function Favorites() {
   return (
     <>
-      <PageHeader />
+      <Header />
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
           <section className="favorites">
@@ -58,7 +58,7 @@ function Favorites() {
                   <article className="favorites__card place-card">
                     <div className="favorites__image-wrapper place-card__image-wrapper">
                       <a href="#">
-                        <img className="place-card__image" src="img/room-small.jpg" width="150" height="110" alt="Place image">
+                        <img className="place-card__image" src="img/room-small.jpg" width="150" height="110" alt="Place image" />
                       </a>
                     </div>
                     <div className="favorites__card-info place-card__info">

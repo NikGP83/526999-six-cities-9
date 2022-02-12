@@ -2,13 +2,13 @@ import { IHotels } from '../../types/types';
 
 
 interface ICitiesProp {
-  l:IHotels;
+  hotel:IHotels;
 }
 
 
 
-function CitieItem(hotel:ICitiesProp) {
-  console.log(hotel.l)
+function CityItem(hotel:ICitiesProp) {
+  console.log(hotel)
   return (
     <article className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -44,4 +44,4 @@ function CitieItem(hotel:ICitiesProp) {
   );
 }
 
-export default CitieItem;
+export default CityItem;

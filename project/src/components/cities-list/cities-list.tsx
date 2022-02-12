@@ -1,7 +1,6 @@
-import { IHotels } from '../../types/types';
-import CitieItem from '../citie-item/citie-item';
+import CityItem from '../city-item/city-item';
 
-function CitiesList({ ...hotels }) {
+function CitiesList({...hotels}) {
 console.log(hotels, `citylist`)
   return (
     <section className="cities__places places">
@@ -23,7 +22,7 @@ console.log(hotels, `citylist`)
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-      <CitieItem {...hotels} />
+      <CityItem {...hotels} />
         {/* {hotels.map((el: IHotels) =>  <CitieItem key={el.id} {...el} />)} */}
 
       </div>

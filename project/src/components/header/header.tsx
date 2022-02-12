@@ -1,6 +1,6 @@
 
 
-function PageHeader() {
+function Header() {
   return (
     <header className="header">
       <div className="container">
@@ -32,4 +32,4 @@ function PageHeader() {
   );
 }
 
-export default PageHeader;
+export default Header;

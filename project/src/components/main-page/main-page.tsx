@@ -1,19 +1,20 @@
 import CitiesList from '../cities-list/cities-list';
 import CitiesMap from '../cities-map/cities-map';
-import CitiesNavTabs from '../cities-nav-tabs/cities-nav-tabs';
-import PageHeader from '../page-header/page-header';
+import LocationNavTabs from '../location-nav-tabs/location-nav-tabs';
+import Header from '../header/header';
 
 
 function MainPage({...hotels}) {
 
+  console.log(hotels)
   return (
 
     <div className="page page--gray page--main">
-      <PageHeader />
+      <Header />
 
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
-        <CitiesNavTabs />
+        <LocationNavTabs />
         <div className="cities">
           <div className="cities__places-container container">
             <CitiesList {...hotels}/>

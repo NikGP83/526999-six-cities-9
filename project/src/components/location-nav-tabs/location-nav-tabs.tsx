@@ -1,16 +1,16 @@
-import CiteTabItem from '../citie-tab-item/citie-tab-item';
+import LocationTabItem from '../location-tab-item/location-tab-item';
 
 
-function CitiesNavTabs() {
+function LocationNavTabs() {
   return (
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          <CiteTabItem />
+          <LocationTabItem />
         </ul>
       </section>
     </div>
   );
 }
 
-export default CitiesNavTabs;
+export default LocationNavTabs;
