@@ -1,5 +1,5 @@
 import CitiesList from '../cities-list/cities-list';
-import CitiesMap from '../cities-map/cities-map';
+import Map from '../map/map';
 import LocationNavTabs from '../location-nav-tabs/location-nav-tabs';
 import Header from '../header/header';
 
@@ -17,7 +17,9 @@ function MainPage() {
         <div className="cities">
           <div className="cities__places-container container">
             <CitiesList />
-            <CitiesMap />
+            <div className="cities__right-section">
+              <Map str={'cities__map'}/>
+            </div>
           </div>
         </div>
       </main>

@@ -1,4 +1,5 @@
 import Header from '../header/header';
+import Map from '../map/map';
 import Reviews from '../reviews/reviews';
 
 function Property() {
@@ -130,7 +131,7 @@ function Property() {
             </div>
           </div>
 
-          <section className="property__map map"></section>
+          <Map str={'property__map'}/>
 
         </section>
         <div className="container">
