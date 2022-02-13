@@ -6,18 +6,18 @@ interface ICitiesProp {
 }
 
 function CityItem({hotels}:ICitiesProp) {
-  console.log(hotels);
+
   return (
     <article className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="/#">
-          <img className="place-card__image" src="img/room.jpg" width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={hotels.previewImage} width="260" height="200" alt="Place image" />
         </a>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;80</b>
+            <b className="place-card__price-value">&euro;{hotels.price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -34,9 +34,9 @@ function CityItem({hotels}:ICitiesProp) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/$Recycle.Bin#">Wood and stone place</a>
+          <a href="/$Recycle.Bin#">{hotels.title}</a>
         </h2>
-        <p className="place-card__type">Private room</p>
+        <p className="place-card__type">{hotels.type}</p>
       </div>
     </article>
   );

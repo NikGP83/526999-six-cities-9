@@ -40,7 +40,7 @@ function CitiesList() {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {moc.map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels} />)}
+        {moc.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels} />)}
 
       </div>
     </section>
