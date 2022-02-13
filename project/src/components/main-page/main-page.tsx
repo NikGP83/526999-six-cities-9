@@ -4,9 +4,8 @@ import LocationNavTabs from '../location-nav-tabs/location-nav-tabs';
 import Header from '../header/header';
 
 
-function MainPage({...hotels}) {
+function MainPage() {
 
-  console.log(hotels)
   return (
 
     <div className="page page--gray page--main">
@@ -17,7 +16,7 @@ function MainPage({...hotels}) {
         <LocationNavTabs />
         <div className="cities">
           <div className="cities__places-container container">
-            <CitiesList {...hotels}/>
+            <CitiesList />
             <CitiesMap />
           </div>
         </div>
