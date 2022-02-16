@@ -5,7 +5,7 @@ export enum AppRoute {
   Property = '/offer',
 }
 
-export  enum AuthorizationStatus {
+export enum AuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
