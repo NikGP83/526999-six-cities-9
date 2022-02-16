@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { IHotels } from '../../types/types';
 import CityItem from '../city-item/city-item';
 
+
 function CitiesList() {
   const [moc, setMoc] = useState<IHotels[]>([]);
 
