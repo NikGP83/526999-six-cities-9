@@ -16,7 +16,7 @@ function MainPage() {
         <LocationNavTabs />
         <div className="cities">
           <div className="cities__places-container container">
-            <CitiesList />
+            <CitiesList/>
             <div className="cities__right-section">
               <Map str={'cities__map'}/>
             </div>

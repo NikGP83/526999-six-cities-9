@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Root} element={<MainPage />} />
+        <Route path={AppRoute.Root} element={<MainPage/>} />
         <Route path={AppRoute.Login} element={<Login />} />
         <Route path={AppRoute.Favorites} element={<PrivateRoot authorizathionStatus={AuthorizationStatus.NoAuth}><Favorites /></PrivateRoot>} />
         <Route path={AppRoute.Property} element={<Property />} />

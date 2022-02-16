@@ -6,7 +6,6 @@ interface IPrivateRootProps {
   authorizathionStatus: AuthorizationStatus;
 }
 
-
 function PrivateRoot(props:IPrivateRootProps){
   const {children, authorizathionStatus} = props;
 
