@@ -1,14 +1,20 @@
+import { IHotels } from './../../types/types';
 import { createSlice } from "@reduxjs/toolkit";
 
+interface HotelsState {
+    data: IHotels[]
+}
+
+const initialState: HotelsState = {
+    data: []
+}
 
 const usersDataSlice = createSlice({
     name: 'data',
-    initialState:{
-        data: [],
-    },
+    initialState,
     reducers: {
         setData(state, action) {
-            state.data.push(...action.payload)
+            state.data.push(action.payload)
         },
     }
 })
