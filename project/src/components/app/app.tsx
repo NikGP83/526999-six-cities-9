@@ -6,8 +6,30 @@ import PageNotFound from '../page-not-found/page-not-found';
 import Property from '../property/property';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import PrivateRoot from '../private-root/private-root';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { IHotels } from '../../types/types';
+import { setData } from '../../store/users-data/users-data';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+useEffect(() => {
+  fetchMoc();
+}, []);
+
+ const fetchMoc = async () => {
+  try {
+    const response = await axios.get<IHotels[]>(
+      "https://9.react.pages.academy/six-cities/hotels"
+    );
+    dispatch(setData(response.data));
+  } catch (error) {
+    window.console.log(error);
+  }
+};
 
   return (
     <BrowserRouter>
