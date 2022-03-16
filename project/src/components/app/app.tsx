@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     fetchMoc();
-  }, []);
+  });
 
   const fetchMoc = async () => {
     try {

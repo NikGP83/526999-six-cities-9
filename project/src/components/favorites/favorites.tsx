@@ -15,7 +15,7 @@ function Favorites() {
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
             <ul className="favorites__list">
-              {favoritesArr.map((offer) =>  <FavortiesListItem key={offer.id} {...offer}/>)}
+              {favoritesArr.map((offer) =>  <FavortiesListItem key={offer.id} offer={offer}/>)}
             </ul>
           </section>
         </div>
