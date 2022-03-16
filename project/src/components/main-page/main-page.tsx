@@ -18,7 +18,7 @@ function MainPage() {
           <div className="cities__places-container container">
             <CitiesList/>
             <div className="cities__right-section">
-              <Map str={'cities__map'}/>
+              <Map str='cities__map'/>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { IHotels } from '../../types/types';
 
 
@@ -6,18 +7,20 @@ interface ICitiesProp {
 }
 
 function CityItem({hotels}:ICitiesProp) {
-
+  const {previewImage, price, title, type, id} = hotels;
+  const [active, setActive] = useState(undefined as number|undefined);
+  window.console.log(active);
   return (
-    <article className="cities__place-card place-card">
+    <article onMouseEnter={() => setActive(id)} className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="/#">
-          <img className="place-card__image" src={hotels.previewImage} width="260" height="200" alt="Place" />
+          <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place" />
         </a>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">&euro;{hotels.price}</b>
+            <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
           <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
@@ -34,9 +37,9 @@ function CityItem({hotels}:ICitiesProp) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/$Recycle.Bin#">{hotels.title}</a>
+          <a href="/$Recycle.Bin#">{title}</a>
         </h2>
-        <p className="place-card__type">{hotels.type}</p>
+        <p className="place-card__type">{type}</p>
       </div>
     </article>
   );

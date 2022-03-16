@@ -7,6 +7,7 @@ function CitiesList() {
 
   const data = useAppSelector((arr) => arr.data.data);
 
+
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
@@ -27,7 +28,7 @@ function CitiesList() {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {data.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels} />)}
+        {data.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels}/>)}
 
       </div>
     </section>

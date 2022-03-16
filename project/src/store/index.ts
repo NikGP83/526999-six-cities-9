@@ -1,11 +1,10 @@
-import  usersDataSlice  from './users-data-slice/users-data-slice';
-import { configureStore } from "@reduxjs/toolkit";
-
+import usersDataSlice from './users-data-slice/users-data-slice';
+import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
-    reducer: {
-        data: usersDataSlice,
-    }
+  reducer: {
+    data: usersDataSlice,
+  },
 });
 
 export default store;
