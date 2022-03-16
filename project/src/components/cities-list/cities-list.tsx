@@ -1,12 +1,12 @@
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import CityItem from '../city-item/city-item';
 
 
 function CitiesList() {
 
-const data = useSelector((arr) => arr.data.data)
-console.log(data)
+  const data = useAppSelector((arr) => arr.data.data);
+
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
