@@ -1,24 +1,11 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import CityItem from '../city-item/city-item';
 
 
 function CitiesList() {
-  const [moc, setMoc] = useState<IHotels[]>([]);
 
-  useEffect(() => {
-    fetchMoc();
-  }, []);
-
-  const fetchMoc = async () => {
-    try {
-      const response = await axios.get<IHotels[]>('https://9.react.pages.academy/six-cities/hotels');
-      setMoc(response.data);
-    } catch (error) {
-      window.console.log(error);
-    }
-  };
+  const data = useAppSelector((arr) => arr.data.data);
 
 
   return (
@@ -41,7 +28,7 @@ function CitiesList() {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {moc.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels} />)}
+        {data.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels}/>)}
 
       </div>
     </section>

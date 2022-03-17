@@ -3,10 +3,10 @@ interface IMap {
   str: string;
 }
 
-function Map(str: IMap) {
-  return (
+function Map({str}: IMap) {
 
-    <section className="{str} map"></section>
+  return (
+    <section className={`${str} map`}></section>
 
   );
 }
