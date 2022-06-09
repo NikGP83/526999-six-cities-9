@@ -1,11 +1,21 @@
+import { MouseEvent } from 'react';
 import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import CityItem from '../city-item/city-item';
 
+interface ICitiesListProp {
+  onMapItemHover: () => void;
+}
 
-function CitiesList() {
+
+function CitiesList(props:ICitiesListProp) {
+  // const {onMapItemHover} = props;
 
   const data = useAppSelector((arr) => arr.data.data);
+  const listItemHoverHandler = (e:MouseEvent) => {
+    // onMapItemHover(null);
+    console.log('On item!');
+  };
 
 
   return (
@@ -28,7 +38,7 @@ function CitiesList() {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {data.slice(0, 5).map((hotels: IHotels) => <CityItem key={hotels.id} hotels={hotels}/>)}
+        {data.slice(0, 5).map((hotels: IHotels) => <CityItem  key={hotels.id} hotels={hotels}/>)}
 
       </div>
     </section>

@@ -131,8 +131,8 @@ function Property() {
             </div>
           </div>
 
-          <Map str={'property__map'}/>
-
+          <Map/>
+          {/* 'property__map */}
         </section>
         <div className="container">
           <section className="near-places places">
