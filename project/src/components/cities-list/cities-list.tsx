@@ -3,13 +3,9 @@ import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import CityItem from '../city-item/city-item';
 
-interface ICitiesListProp {
-  onMapItemHover: () => void;
-}
 
+function CitiesList() {
 
-function CitiesList(props:ICitiesListProp) {
-  // const {onMapItemHover} = props;
 
   const data = useAppSelector((arr) => arr.data.data);
   const listItemHoverHandler = (e:MouseEvent) => {

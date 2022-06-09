@@ -2,18 +2,9 @@ import CitiesList from '../cities-list/cities-list';
 import Map from '../map/map';
 import LocationNavTabs from '../location-nav-tabs/location-nav-tabs';
 import Header from '../header/header';
-import { useState } from 'react';
 
 
 function MainPage() {
-  const [selectedPoint, setSelectedPoint] = useState({});
-
-  const onMapItemHover = (listItemName) => {
-    const currentPoint = POINTS.find((point) =>
-      point.title === listItemName,
-    );
-    setSelectedPoint(currentPoint);
-  }
 
   return (
 
@@ -25,9 +16,9 @@ function MainPage() {
         <LocationNavTabs />
         <div className="cities">
           <div className="cities__places-container container">
-            <CitiesList onMapItemHover={onMapItemHover}/>
+            <CitiesList />
             <div className="cities__right-section">
-              <Map selectedPoint={selectedPoint}/>
+              <Map />
             </div>
           </div>
         </div>
