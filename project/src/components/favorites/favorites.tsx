@@ -5,7 +5,6 @@ import Header from '../header/header';
 
 function Favorites() {
   const favoritesData = useAppSelector((data) => data.data.data);
-  console.log(favoritesData)
   const favoritesArr = favoritesData.filter((offer) => offer.isFavorite);
 
   return (

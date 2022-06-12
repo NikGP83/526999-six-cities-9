@@ -9,8 +9,8 @@ import PrivateRoot from '../private-root/private-root';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { IHotels } from '../../types/types';
-import { setData } from '../../store/users-data-slice/users-data-slice';
 import { useAppDispatch } from '../../hooks';
+import { loadData } from '../../store/action';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,7 +22,7 @@ function App() {
   const fetchMoc = async () => {
     try {
       const response = await axios.get<IHotels[]>('https://9.react.pages.academy/six-cities/hotels');
-      dispatch(setData(response.data));
+      dispatch(loadData(response.data));
     }
     catch(error) {
       window.console.log(error);
