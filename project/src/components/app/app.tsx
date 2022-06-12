@@ -8,7 +8,6 @@ import { AppRoute, AuthorizationStatus } from '../../const';
 import PrivateRoot from '../private-root/private-root';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { IHotels } from '../../types/types';
 import { useAppDispatch } from '../../hooks';
 import { loadData } from '../../store/action';
 
@@ -21,7 +20,7 @@ function App() {
 
   const fetchMoc = async () => {
     try {
-      const response = await axios.get<IHotels[]>('https://9.react.pages.academy/six-cities/hotels');
+      const response = await axios.get('https://9.react.pages.academy/six-cities/hotels');
       dispatch(loadData(response.data));
     }
     catch(error) {
