@@ -1,25 +1,36 @@
+import { useAppDispatch } from '../../hooks';
+import { changeCity } from '../../store/action';
+
 
 function CitiesList() {
+  const dispatch  = useAppDispatch();
+
+  const cityHandler = (e) => {
+    const cityName = e.currentTarget.textContent;
+    dispatch(changeCity(cityName));
+  };
+
+
   return (
     <div className="tabs">
       <section className="locations container">
         <ul className="locations__list tabs__list">
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a className="locations__item-link tabs__item" href="/#">
               <span>Paris</span>
             </a>
           </li>
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a className="locations__item-link tabs__item" href="/#">
               <span>Cologne</span>
             </a>
           </li>
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a className="locations__item-link tabs__item" href="/#">
               <span>Brussels</span>
             </a>
           </li>
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a
               href="/#"
               className="locations__item-link tabs__item tabs__item--active"
@@ -27,12 +38,12 @@ function CitiesList() {
               <span>Amsterdam</span>
             </a>
           </li>
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a className="locations__item-link tabs__item" href="/#">
               <span>Hamburg</span>
             </a>
           </li>
-          <li className="locations__item">
+          <li onClick={cityHandler} className="locations__item">
             <a className="locations__item-link tabs__item" href="/#">
               <span>Dusseldorf</span>
             </a>

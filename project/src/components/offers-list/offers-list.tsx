@@ -6,8 +6,11 @@ import OfferItem from '../offer-item/offer-item';
 
 function OffersList() {
 
-
   const data = useAppSelector((arr) => arr.data.data);
+
+  // if (typeof temp==="undefined") console.log('нету'); else console.log(temp)
+
+
   const listItemHoverHandler = (e:MouseEvent) => {
     // onMapItemHover(null);
     console.log('On item!');
