@@ -9,7 +9,7 @@ import PrivateRoot from '../private-root/private-root';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useAppDispatch } from '../../hooks';
-import { loadData } from '../../store/action';
+import { changeCity, loadData } from '../../store/action';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -22,6 +22,7 @@ function App() {
     try {
       const response = await axios.get('https://9.react.pages.academy/six-cities/hotels');
       dispatch(loadData(response.data));
+      dispatch(changeCity('Paris'));
     }
     catch(error) {
       window.console.log(error);

@@ -4,21 +4,19 @@ import { changeCity, loadData } from './action';
 
 
 interface HotelsState {
-  data: IHotels[];
+  offerList: IHotels[];
   city: string;
-  'offer-list': [];
 }
 
 const initialState: HotelsState = {
-  data: [],
+  offerList: [],
   city: 'Paris',
-  'offer-list': [],
 };
 
 export const reducer = createReducer (initialState, (builder) => {
   builder
     .addCase(loadData, (state, action) => {
-      state.data.push(...action.payload);
+      state.offerList.push(...action.payload);
     })
     .addCase(changeCity, (state, action) => {
       state.city = action.payload;

@@ -1,15 +1,19 @@
-import { useAppDispatch } from '../../hooks';
+import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { changeCity } from '../../store/action';
 
 
 function CitiesList() {
+  const [active, setActive] = useState('');
   const dispatch  = useAppDispatch();
+
+  const {city} = useAppSelector((state) => state);
 
   const cityHandler = (e) => {
     const cityName = e.currentTarget.textContent;
     dispatch(changeCity(cityName));
+    setActive(e.currentTarget.textContent);
   };
-
 
   return (
     <div className="tabs">
@@ -26,14 +30,14 @@ function CitiesList() {
             </a>
           </li>
           <li onClick={cityHandler} className="locations__item">
-            <a className="locations__item-link tabs__item" href="/#">
+            <a className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`} href="/#">
               <span>Brussels</span>
             </a>
           </li>
           <li onClick={cityHandler} className="locations__item">
             <a
               href="/#"
-              className="locations__item-link tabs__item tabs__item--active"
+              className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`}
             >
               <span>Amsterdam</span>
             </a>

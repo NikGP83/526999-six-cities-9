@@ -6,9 +6,9 @@ import OfferItem from '../offer-item/offer-item';
 
 function OffersList() {
 
-  const data = useAppSelector((arr) => arr.data.data);
+  const {offerList, city} = useAppSelector((state) => state);
+  const filteredData = offerList.filter((offer) => offer.city.name === city);
 
-  // if (typeof temp==="undefined") console.log('нету'); else console.log(temp)
 
 
   const listItemHoverHandler = (e:MouseEvent) => {
@@ -16,11 +16,10 @@ function OffersList() {
     console.log('On item!');
   };
 
-
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">312 places to stay in Amsterdam</b>
+      <b className="places__found">`{filteredData.length} places to stay in {city}`</b>
       <form className="places__sorting" action="#" method="get">
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tab-index="0">
@@ -37,7 +36,7 @@ function OffersList() {
         </ul>
       </form>
       <div className="cities__places-list places__list tabs__content">
-        {data.slice(0, 5).map((hotels: IHotels) => <OfferItem  key={hotels.id} hotels={hotels}/>)}
+        {filteredData.slice(0, 5).map((hotels: IHotels) => <OfferItem  key={hotels.id} hotels={hotels}/>)}
 
       </div>
     </section>
