@@ -13,6 +13,7 @@ function CitiesList() {
     const cityName = e.currentTarget.textContent;
     dispatch(changeCity(cityName));
     setActive(e.currentTarget.textContent);
+    console.log(active === city);
   };
 
   return (
@@ -20,12 +21,12 @@ function CitiesList() {
       <section className="locations container">
         <ul className="locations__list tabs__list">
           <li onClick={cityHandler} className="locations__item">
-            <a className="locations__item-link tabs__item" href="/#">
+            <a className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`} href="/#">
               <span>Paris</span>
             </a>
           </li>
           <li onClick={cityHandler} className="locations__item">
-            <a className="locations__item-link tabs__item" href="/#">
+            <a className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`} href="/#">
               <span>Cologne</span>
             </a>
           </li>
@@ -43,12 +44,12 @@ function CitiesList() {
             </a>
           </li>
           <li onClick={cityHandler} className="locations__item">
-            <a className="locations__item-link tabs__item" href="/#">
+            <a className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`} href="/#">
               <span>Hamburg</span>
             </a>
           </li>
           <li onClick={cityHandler} className="locations__item">
-            <a className="locations__item-link tabs__item" href="/#">
+            <a className={`locations__item-link tabs__item ${active === city ? 'tabs__item--active' : ''}`} href="/#">
               <span>Dusseldorf</span>
             </a>
           </li>
