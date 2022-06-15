@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import OfferItem from '../offer-item/offer-item';
@@ -8,13 +7,6 @@ function OffersList() {
 
   const {offerList, city} = useAppSelector((state) => state);
   const filteredData = offerList.filter((offer) => offer.city.name === city);
-
-
-
-  const listItemHoverHandler = (e:MouseEvent) => {
-    // onMapItemHover(null);
-    console.log('On item!');
-  };
 
   return (
     <section className="cities__places places">
