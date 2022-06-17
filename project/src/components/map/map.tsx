@@ -1,13 +1,8 @@
 
-interface IMap {
-  str: string;
-}
-
-function Map({str}: IMap) {
+function Map() {
 
   return (
-    <section className={`${str} map`}></section>
-
+    <section  className='cities__map map'></section>
   );
 }
 

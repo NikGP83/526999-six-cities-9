@@ -6,7 +6,7 @@ interface ICitiesProp {
   hotels:IHotels;
 }
 
-function CityItem({hotels}:ICitiesProp) {
+function OfferItem({hotels}:ICitiesProp) {
   const {previewImage, price, title, type, id} = hotels;
   const [active, setActive] = useState(undefined as number|undefined);
   window.console.log(active);
@@ -45,4 +45,4 @@ function CityItem({hotels}:ICitiesProp) {
   );
 }
 
-export default CityItem;
+export default OfferItem;
