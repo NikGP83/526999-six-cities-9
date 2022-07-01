@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { useAppSelector } from '../../hooks';
 import { IHotels } from '../../types/types';
 import OfferItem from '../offer-item/offer-item';
@@ -10,16 +9,10 @@ function OffersList() {
   const filteredData = offerList.filter((offer) => offer.city.name === city);
 
 
-
-  const listItemHoverHandler = (e:MouseEvent) => {
-    // onMapItemHover(null);
-    console.log('On item!');
-  };
-
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">`{filteredData.length} places to stay in {city}`</b>
+      <b className="places__found">{filteredData.length} places to stay in {city}</b>
       <form className="places__sorting" action="#" method="get">
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tab-index="0">
