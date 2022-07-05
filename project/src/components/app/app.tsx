@@ -6,28 +6,8 @@ import PageNotFound from '../page-not-found/page-not-found';
 import Property from '../property/property';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import PrivateRoot from '../private-root/private-root';
-import { useEffect } from 'react';
-import axios from 'axios';
-import { useAppDispatch } from '../../hooks';
-import { changeCity, loadData } from '../../store/action';
 
 function App() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    fetchMoc();
-  });
-
-  const fetchMoc = async () => {
-    try {
-      const response = await axios.get('https://9.react.pages.academy/six-cities/hotels');
-      dispatch(loadData(response.data));
-      dispatch(changeCity('Paris'));
-    }
-    catch(error) {
-      window.console.log(error);
-    }
-  };
 
   return (
     <BrowserRouter>

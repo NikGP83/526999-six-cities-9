@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/app/app';
 import store from './store';
+import { fetchOffers } from './store/api-actions';
 
+store.dispatch(fetchOffers());
 
 ReactDOM.render(
   <React.StrictMode>
