@@ -12,6 +12,7 @@ function OffersList() {
 
   const { offerList, city, isDataLoaded } = useAppSelector((state) => state);
   const filteredData = offerList.filter((offer) => offer.city.name === city);
+
   if (!isDataLoaded) {
     return <PacmanLoader cssOverride={override} size={250}/>;
   }
