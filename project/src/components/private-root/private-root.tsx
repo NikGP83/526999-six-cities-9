@@ -8,7 +8,6 @@ interface IPrivateRootProps {
 
 function PrivateRoot(props:IPrivateRootProps){
   const {children, authorizathionStatus} = props;
-
   return authorizathionStatus === AuthorizationStatus.Auth ? children: <Navigate to={AppRoute.Login} />;
 }
 

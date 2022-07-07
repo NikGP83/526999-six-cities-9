@@ -4,10 +4,13 @@ import Login from '../login/login';
 import MainPage from '../main-page/main-page';
 import PageNotFound from '../page-not-found/page-not-found';
 import Property from '../property/property';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute } from '../../const';
 import PrivateRoot from '../private-root/private-root';
+import { useAppSelector } from '../../hooks';
 
 function App() {
+
+  const {authorizationStatus} = useAppSelector((state) => state);
 
   return (
     <BrowserRouter>
@@ -17,7 +20,7 @@ function App() {
         <Route
           path={AppRoute.Favorites}
           element={
-            <PrivateRoot authorizathionStatus={AuthorizationStatus.Auth}>
+            <PrivateRoot authorizathionStatus={authorizationStatus}>
               <Favorites />
             </PrivateRoot>
           }

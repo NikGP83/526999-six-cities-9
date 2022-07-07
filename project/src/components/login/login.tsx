@@ -1,5 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../const';
 import { loginAction } from '../../store/api-actions';
 import Header from '../header/header';
 
@@ -7,6 +9,7 @@ import Header from '../header/header';
 function Login() {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [userLogin, setUserLogin] = useState({
     login: '',
@@ -16,6 +19,7 @@ function Login() {
   const handleSubmit = (e: FormEvent ) => {
     e.preventDefault();
     dispatch(loginAction(userLogin));
+    navigate(AppRoute.Root);
   };
 
 
