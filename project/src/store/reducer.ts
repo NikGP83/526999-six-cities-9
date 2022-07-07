@@ -9,6 +9,7 @@ interface HotelsState {
   city: string;
   authorizationStatus: AuthorizationStatus;
   isDataLoaded: boolean;
+  error: string;
 }
 
 const initialState: HotelsState = {
