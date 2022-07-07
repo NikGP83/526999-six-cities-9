@@ -5,6 +5,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { APIRoute, AuthorizationStatus } from '../const';
 import { loadData, changeAuthStatus } from './action';
 import { UserData } from '../types/user-data';
+import { errorHandle } from '../services/error-handle';
 
 export const fetchOffers = createAsyncThunk(
   'load-data',
@@ -13,7 +14,7 @@ export const fetchOffers = createAsyncThunk(
       const {data} = await api.get(APIRoute.Hotels);
       store.dispatch(loadData(data));
     } catch (error) {
-      errorHadle(error);
+      errorHandle(error);
     }
   },
 );
@@ -25,7 +26,7 @@ export const checkAuthAction = createAsyncThunk(
       await api.get(APIRoute.Login);
       store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
     } catch (error) {
-      errorHadle(error);
+      errorHandle(error);
       store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
     }
   },
@@ -39,7 +40,7 @@ export const loginAction = createAsyncThunk(
       saveToken(token);
       store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
     } catch (error) {
-      errorHadle(error);
+      errorHandle(error);
       store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
     }
   },
