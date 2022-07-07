@@ -1,3 +1,4 @@
+import { clearErrorAction } from './../store/api-actions';
 import { store } from './../store/index';
 import { setError } from './../store/action';
 import  request from 'axios';

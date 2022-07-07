@@ -1,9 +1,10 @@
+import { TIMEOUT_SHOW_ERROR } from './../const';
 import { AuthData } from './../types/auth-data';
 import { saveToken } from './../services/token';
 import { api, store } from './index';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { APIRoute, AuthorizationStatus } from '../const';
-import { loadData, changeAuthStatus } from './action';
+import { loadData, changeAuthStatus, setError } from './action';
 import { UserData } from '../types/user-data';
 import { errorHandle } from '../services/error-handle';
 
@@ -43,5 +44,15 @@ export const loginAction = createAsyncThunk(
       errorHandle(error);
       store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
     }
+  },
+);
+
+export const clearErrorAction = createAsyncThunk(
+  'clear-error',
+  () => {
+    setTimeout(
+      () => store.dispatch(setError('')),
+      TIMEOUT_SHOW_ERROR,
+    );
   },
 );
