@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import { AppRoute, AuthorizationStatus } from "../../const";
-import { useAppSelector } from "../../hooks";
-import UsersBlock from "../users-block/users-block";
+import { Link } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../const';
+import { useAppSelector } from '../../hooks';
+import UsersBlock from '../users-block/users-block';
 
 function Header() {
   const { authorizationStatus } = useAppSelector((state) => state);
