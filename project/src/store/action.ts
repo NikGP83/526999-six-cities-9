@@ -5,3 +5,4 @@ export const loadData = createAction<[]>('load-data');
 export const changeCity = createAction<string>('change-city');
 export const offerList = createAction('offer-list');
 export const changeAuthStatus = createAction<AuthorizationStatus>('change-auth-status');
+export const setError = createAction<string>('set-error');

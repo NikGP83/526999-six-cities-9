@@ -1,6 +1,6 @@
 import { IHotels } from './../types/types';
 import { createReducer } from '@reduxjs/toolkit';
-import { changeCity, loadData, changeAuthStatus } from './action';
+import { changeCity, loadData, changeAuthStatus, setError } from './action';
 import { AuthorizationStatus } from '../const';
 
 
@@ -17,6 +17,7 @@ const initialState: HotelsState = {
   city: 'Paris',
   authorizationStatus: AuthorizationStatus.Unknown,
   isDataLoaded: false,
+  error: '',
 };
 
 export const reducer = createReducer (initialState, (builder) => {
@@ -30,6 +31,9 @@ export const reducer = createReducer (initialState, (builder) => {
     })
     .addCase(changeAuthStatus, (state, action) => {
       state.authorizationStatus = action.payload;
+    })
+    .addCase(setError, (state, action)=> {
+      state.error = action.payload;
     });
 });
 
