@@ -13,7 +13,7 @@ export const fetchOffers = createAsyncThunk(
       const {data} = await api.get(APIRoute.Hotels);
       store.dispatch(loadData(data));
     } catch (error) {
-      window.console.warn(error);
+      errorHadle(error);
     }
   },
 );
@@ -21,16 +21,26 @@ export const fetchOffers = createAsyncThunk(
 export const checkAuthAction = createAsyncThunk(
   'check-user-auth',
   async () => {
-    await api.get(APIRoute.Login);
-    store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
+    try {
+      await api.get(APIRoute.Login);
+      store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
+    } catch (error) {
+      errorHadle(error);
+      store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
+    }
   },
 );
 
 export const loginAction = createAsyncThunk(
   'user-login',
   async ({login: email, password}: AuthData) => {
-    const {data: {token}} = await api.post<UserData>(APIRoute.Login, {email, password});
-    saveToken(token);
-    store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
+    try {
+      const {data: {token}} = await api.post<UserData>(APIRoute.Login, {email, password});
+      saveToken(token);
+      store.dispatch(changeAuthStatus(AuthorizationStatus.Auth));
+    } catch (error) {
+      errorHadle(error);
+      store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
+    }
   },
 );
