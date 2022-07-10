@@ -1,6 +1,7 @@
+import { dropName } from './../services/login';
 import { TIMEOUT_SHOW_ERROR } from './../const';
 import { AuthData } from './../types/auth-data';
-import { saveToken } from './../services/token';
+import { saveToken, dropToken } from './../services/token';
 import { api, store } from './index';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { APIRoute, AuthorizationStatus } from '../const';
@@ -44,6 +45,15 @@ export const loginAction = createAsyncThunk(
       errorHandle(error);
       store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
     }
+  },
+);
+
+export const singOut = createAsyncThunk(
+  'drop-token',
+  () => {
+    dropToken();
+    dropName();
+    store.dispatch(changeAuthStatus(AuthorizationStatus.NoAuth));
   },
 );
 

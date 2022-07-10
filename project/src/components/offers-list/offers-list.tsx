@@ -17,6 +17,7 @@ function OffersList() {
     return <PacmanLoader cssOverride={override} size={250}/>;
   }
 
+
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>

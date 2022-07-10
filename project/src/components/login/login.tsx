@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AppRoute } from '../../const';
+import { saveUserName } from '../../services/login';
 import { loginAction } from '../../store/api-actions';
 import Header from '../header/header';
 
@@ -19,8 +20,11 @@ function Login() {
   const handleSubmit = (e: FormEvent ) => {
     e.preventDefault();
     dispatch(loginAction(userLogin));
+    saveUserName(userLogin.login);
     navigate(AppRoute.Root);
   };
+
+
 
 
   return (
