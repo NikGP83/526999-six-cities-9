@@ -1,9 +1,19 @@
+import { useParams } from 'react-router-dom';
+import { useAppSelector } from '../../hooks';
 import Header from '../header/header';
 import Map from '../map/map';
 import Reviews from '../reviews/reviews';
 
 function Property() {
+
+  const {id} = useParams();
+  const offerId = Number(id);
+  const {offerList} = useAppSelector((state) => state);
+  const {images} = offerList.find((offer) => offer.id === offerId);
+
+
   return (
+
 
     <div className="page">
       <Header />

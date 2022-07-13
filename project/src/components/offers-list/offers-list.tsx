@@ -49,7 +49,7 @@ function OffersList() {
       </form>
       <div className="cities__places-list places__list tabs__content">
         {filteredData.slice(0, 5).map((hotels: IHotels) => (
-          <OfferItem key={hotels.id} hotels={hotels} />
+          <OfferItem key={hotels.id} hotels={hotels}/>
         ))}
       </div>
     </section>

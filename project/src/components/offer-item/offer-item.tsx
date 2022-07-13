@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { IHotels } from '../../types/types';
 
 
@@ -9,7 +10,7 @@ interface ICitiesProp {
 function OfferItem({hotels}:ICitiesProp) {
   const {previewImage, price, title, type, id} = hotels;
   const [active, setActive] = useState(undefined as number|undefined);
-  window.console.log(active);
+  // window.console.log(active);
   return (
     <article onMouseEnter={() => setActive(id)} className="cities__place-card place-card">
       <div className="cities__image-wrapper place-card__image-wrapper">
@@ -23,7 +24,7 @@ function OfferItem({hotels}:ICitiesProp) {
             <b className="place-card__price-value">&euro;{price}</b>
             <span className="place-card__price-text">&#47;&nbsp;night</span>
           </div>
-          <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
+          <button className={`place-card__bookmark-button ${active !== id ?'place-card__bookmark-button--active' : null} button`} type="button">
             <svg className="place-card__bookmark-icon" style={{width:'18', height:'19'}}>
               <use xlinkHref="#icon-bookmark"></use>
             </svg>
@@ -37,7 +38,7 @@ function OfferItem({hotels}:ICitiesProp) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/$Recycle.Bin#">{title}</a>
+          <Link to={`/offer/${hotels.id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
