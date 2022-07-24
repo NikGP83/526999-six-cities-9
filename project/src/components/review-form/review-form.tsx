@@ -1,4 +1,6 @@
+
 function ReviewForm() {
+
   return (
     <form className="reviews__form form" action="#" method="post">
       <label className="reviews__label form__label" htmlFor="review">
@@ -95,6 +97,7 @@ function ReviewForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
+        onChange={(e) => setComment(e.target.value)}
       >
       </textarea>
       <div className="reviews__button-wrapper">

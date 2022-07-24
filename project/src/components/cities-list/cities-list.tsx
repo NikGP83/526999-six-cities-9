@@ -6,7 +6,7 @@ import { cityNames } from './settings';
 function CitiesList() {
   const dispatch  = useAppDispatch();
 
-  const selectedCity = useAppSelector((state) => state.city);
+  const selectedCity = useAppSelector((state) => state.reducer.city);
   return (
     <div className="tabs">
       <section className="locations container">

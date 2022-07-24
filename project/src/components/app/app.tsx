@@ -10,7 +10,7 @@ import { useAppSelector } from '../../hooks';
 
 function App() {
 
-  const {authorizationStatus} = useAppSelector((state) => state);
+  const {authorizationStatus} = useAppSelector((state) => state.reducer);
 
   return (
     <BrowserRouter>

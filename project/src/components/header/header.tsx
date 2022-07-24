@@ -4,7 +4,7 @@ import { useAppSelector } from '../../hooks';
 import UsersBlock from '../users-block/users-block';
 
 function Header() {
-  const { authorizationStatus } = useAppSelector((state) => state);
+  const { authorizationStatus } = useAppSelector((state) => state.reducer);
 
   return (
     <header className="header">

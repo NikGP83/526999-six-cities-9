@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { PROPERTY_PHOTO_NUM } from '../../const';
 import { useAppSelector } from '../../hooks';
 import Header from '../header/header';
 import Map from '../map/map';
@@ -8,21 +9,21 @@ function Property() {
 
   const {id} = useParams();
   const offerId = Number(id);
-  const {offerList} = useAppSelector((state) => state);
-  const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods} = offerList.find((offer) => offer.id === offerId);
+  const {offerList} = useAppSelector((state) => state.reducer);
 
+  const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods, host, description} = offerList.find((offer) => offer.id === offerId);
 
+  if(Array.isArray(offerList) === false){
+    return null;
+  }
   return (
-
-
     <div className="page">
       <Header />
-
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              {images.map((image) => (
+              {images.slice(PROPERTY_PHOTO_NUM.MIN, PROPERTY_PHOTO_NUM.MAX).map((image) => (
                 <div key={image} className="property__image-wrapper">
                   <img className="property__image" src={image} alt="Studio"/>
                 </div>
@@ -81,21 +82,16 @@ function Property() {
                 <h2 className="property__host-title">Meet the host</h2>
                 <div className="property__host-user user">
                   <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
-                    <img className="property__avatar user__avatar" src="img/avatar-angelina.jpg" width="74" height="74" alt="Host avatar" />
+                    <img className="property__avatar user__avatar" src={host.avatarUrl} width="74" height="74" alt="Host avatar" />
                   </div>
                   <span className="property__user-name">
-                    Angelina
+                    {host.name}
                   </span>
-                  <span className="property__user-status">
-                    Pro
-                  </span>
+                  {host.isPro ?<span className="property__user-status">Pro</span> : null}
                 </div>
                 <div className="property__description">
                   <p className="property__text">
-                    A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.
-                  </p>
-                  <p className="property__text">
-                    An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.
+                    {description}
                   </p>
                 </div>
               </div>

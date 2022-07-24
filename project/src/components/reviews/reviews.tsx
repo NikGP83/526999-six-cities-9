@@ -1,7 +1,8 @@
 import ReviewForm from '../review-form/review-form';
 
-
 function Reviews() {
+
+
   return (
 
     <section className="property__reviews reviews">

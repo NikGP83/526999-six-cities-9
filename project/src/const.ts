@@ -25,6 +25,11 @@ export enum HTTP_CODE {
   NOT_FOUND = 404,
 }
 
+export enum PROPERTY_PHOTO_NUM {
+  MIN = 0,
+  MAX = 6,
+}
+
 export const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
 
 export const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
