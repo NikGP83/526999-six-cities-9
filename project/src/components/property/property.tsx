@@ -13,9 +13,10 @@ function Property() {
 
   const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods, host, description} = offerList.find((offer) => offer.id === offerId);
 
-  if(Array.isArray(offerList) === false){
+  if(!Array.isArray(offerList)){
     return null;
   }
+
   return (
     <div className="page">
       <Header />
