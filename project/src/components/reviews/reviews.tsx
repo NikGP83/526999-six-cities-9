@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
-import { commentsApi } from "../../services/comments-api";
-import ReviewForm from "../review-form/review-form";
+import { useParams } from 'react-router-dom';
+import { commentsApi } from '../../services/comments-api';
+import ReviewForm from '../review-form/review-form';
 
 function Reviews() {
   const { id } = useParams();
-  const { data } = commentsApi.useGetCommentsQuery(id);
+  const { data = [] } = commentsApi.useGetCommentsQuery(id);
+  console.log(data)
   if (!Array.isArray(data)) {
     return null;
   }
-  console.log(data[0]);
+
   return (
     <section className="property__reviews reviews">
       <h2 className="reviews__title">
@@ -27,7 +28,7 @@ function Reviews() {
                   alt="Reviews avatar"
                 />
               </div>
-              <span className="reviews__user-name">Max</span>
+              <span className="reviews__user-name">{comment.user.name}</span>
             </div>
             <div className="reviews__info">
               <div className="reviews__rating rating">

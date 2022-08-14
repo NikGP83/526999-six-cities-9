@@ -5,6 +5,7 @@ import Header from '../header/header';
 import Map from '../map/map';
 import Reviews from '../reviews/reviews';
 
+
 function Property() {
 
   const {id} = useParams();

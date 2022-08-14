@@ -1,5 +1,18 @@
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { commentsApi } from '../../services/comments-api';
+import { getToken } from '../../services/token';
 
 function ReviewForm() {
+  const [comment, setComment] = useState('');
+  const {id} = useParams();
+  const [addComment] = commentsApi.useAddCommentMutation();
+  const token = getToken();
+
+  const handleComment = async() => {
+    await addComment({id, token, comment: 'some comment' });
+  };
+
 
   return (
     <form className="reviews__form form" action="#" method="post">
@@ -109,7 +122,7 @@ function ReviewForm() {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          onClick={handleComment}
         >
           Submit
         </button>

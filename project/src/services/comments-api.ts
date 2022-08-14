@@ -11,6 +11,14 @@ export const commentsApi = createApi({
         url:`comments/${id}`,
       }),
     }),
+    addComment: build.mutation({
+      query: ({id, token, ...comment}) => ({
+        url:`comments/${id}`,
+        method: 'POST',
+        body: comment,
+        'x-token': token,
+      }),
+    }),
   }),
 });
 
