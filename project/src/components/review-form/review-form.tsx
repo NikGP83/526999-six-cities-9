@@ -4,18 +4,26 @@ import { commentsApi } from '../../services/comments-api';
 import { getToken } from '../../services/token';
 
 function ReviewForm() {
-  const [userComment, setUserComment] = useState('');
-  const {id} = useParams();
+  const [userComment, setUserComment] = useState({comment: '', rating: ''});
+  const {id: paramId} = useParams();
+  if(typeof paramId === 'undefined') {
+    throw new Error('нужнен номер');
+  }
+  const id = Number.parseInt(paramId, 10);
+  if(!Number.isInteger(id)){
+    throw new Error('ошибка');
+  }
   const [addComment] = commentsApi.useAddCommentMutation();
   const token = getToken();
+  const comment = 'hello world';
+  const rating = 5;
 
   const handleComment = async() => {
-    await addComment({id, token, userComment, rating: 5 });
+    await addComment({token, comment, rating, id});
   };
 
   const handleSubmit = (e:FormEvent) => {
     e.preventDefault();
-    setUserComment(e.target.value);
   };
 
 
@@ -115,7 +123,7 @@ function ReviewForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        onChange={handleSubmit}
+        onChange={(e) => setUserComment({...userComment, comment: e.target.value})}
       >
       </textarea>
       <div className="reviews__button-wrapper">

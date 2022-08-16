@@ -1,10 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { commentsApi } from '../../services/comments-api';
+import { getToken } from '../../services/token';
 import ReviewForm from '../review-form/review-form';
 
 function Reviews() {
   const { id } = useParams();
-  const { data } = commentsApi.useGetCommentsQuery(id);
+  const token = getToken();
+  if(typeof id === 'undefined'){
+    throw new Error('no work');
+
+  }
+  const { data } = commentsApi.useGetCommentsQuery({id, token});
 
   return (
     <section className="property__reviews reviews">

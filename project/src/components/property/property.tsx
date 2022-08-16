@@ -12,12 +12,12 @@ function Property() {
   const offerId = Number(id);
   const {offerList} = useAppSelector((state) => state.reducer);
 
-  const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods, host, description} = offerList.find((offer) => offer.id === offerId);
+  const foundOffers = offerList.find((offer) => offer.id === offerId);
 
-  if(offerList.length === 0){
+  if(typeof foundOffers === 'undefined'){
     return null;
   }
-
+  const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods, host, description} = foundOffers;
   return (
     <div className="page">
       <Header />

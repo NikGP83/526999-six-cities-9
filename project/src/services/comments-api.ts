@@ -1,24 +1,28 @@
+import { IComment } from './../types/types';
 import { BASE_URL } from './api';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
 export const commentsApi = createApi({
   reducerPath: 'userApi',
+  tagTypes: ['comments'],
   baseQuery: fetchBaseQuery({baseUrl: BASE_URL}),
   endpoints: (build) => ({
-    getComments: build.query({
-      query: (id) => ({
+    getComments: build.query<IComment[], {id: string, token: string}>({
+      query: ({id, token}) => ({
+        headers: {'X-Token': token},
         url:`comments/${id}`,
       }),
+      providesTags: ['comments'],
     }),
-    addComment: build.mutation({
+    addComment: build.mutation<IComment[], Pick<IComment, 'id'|'comment'|'rating'> & {token: string} >({
       query: ({id, token, comment, rating}) => ({
         url:`comments/${id}`,
-        comment,
-        rating,
+        body: {comment, rating},
         method: 'POST',
-        headers:{'X-Token': token},
+        headers:{'X-Token': token, 'Content-Type': 'application/json'},
       }),
+      invalidatesTags: ['comments'],
     }),
   }),
 });
