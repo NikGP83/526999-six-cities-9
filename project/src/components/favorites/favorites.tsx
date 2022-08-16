@@ -4,7 +4,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 
 function Favorites() {
-  const favoritesData = useAppSelector((data) => data.offerList);
+  const favoritesData = useAppSelector((data) => data.reducer.offerList);
   const favoritesArr = favoritesData.filter((offer) => offer.isFavorite);
 
   return (

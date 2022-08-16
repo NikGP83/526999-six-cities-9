@@ -1,6 +1,34 @@
+import { FormEvent, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { commentsApi } from '../../services/comments-api';
+import { getToken } from '../../services/token';
+
 function ReviewForm() {
+  const [userComment, setUserComment] = useState({comment: '', rating: ''});
+  const {id: paramId} = useParams();
+  if(typeof paramId === 'undefined') {
+    throw new Error('нужнен номер');
+  }
+  const id = Number.parseInt(paramId, 10);
+  if(!Number.isInteger(id)){
+    throw new Error('ошибка');
+  }
+  const [addComment] = commentsApi.useAddCommentMutation();
+  const token = getToken();
+  const comment = 'hello world';
+  const rating = 5;
+
+  const handleComment = async() => {
+    await addComment({token, comment, rating, id});
+  };
+
+  const handleSubmit = (e:FormEvent) => {
+    e.preventDefault();
+  };
+
+
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={handleSubmit}>
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
@@ -95,6 +123,7 @@ function ReviewForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
+        onChange={(e) => setUserComment({...userComment, comment: e.target.value})}
       >
       </textarea>
       <div className="reviews__button-wrapper">
@@ -106,7 +135,7 @@ function ReviewForm() {
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          disabled
+          onClick={handleComment}
         >
           Submit
         </button>

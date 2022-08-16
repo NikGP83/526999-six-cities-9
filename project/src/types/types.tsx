@@ -38,3 +38,20 @@ export interface IHotels {
   title: string;
   type: string;
 }
+
+export interface IUser {
+  avatarUrl: string
+  id: number
+  isPro: boolean
+  name: string
+}
+
+export interface IComment {
+    comment: string
+    date: string
+    id: number
+    rating: number
+    user: IUser
+  }
+
+

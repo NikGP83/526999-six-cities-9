@@ -9,8 +9,7 @@ function OffersList() {
     display: 'block',
     margin: '0 auto',
   };
-
-  const { offerList, city, isDataLoaded } = useAppSelector((state) => state);
+  const { offerList, city, isDataLoaded } = useAppSelector((state) => state.reducer);
   const filteredData = offerList.filter((offer) => offer.city.name === city);
 
   if (!isDataLoaded) {
@@ -49,7 +48,7 @@ function OffersList() {
       </form>
       <div className="cities__places-list places__list tabs__content">
         {filteredData.slice(0, 5).map((hotels: IHotels) => (
-          <OfferItem key={hotels.id} hotels={hotels} />
+          <OfferItem key={hotels.id} hotels={hotels}/>
         ))}
       </div>
     </section>

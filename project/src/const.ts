@@ -4,7 +4,7 @@ export enum AppRoute {
   Root = '/',
   Login = '/login',
   Favorites = '/favorites',
-  Property = '/offer',
+  Property = '/offer/:id',
 }
 
 export enum AuthorizationStatus {
@@ -23,6 +23,11 @@ export enum HTTP_CODE {
   BAD_REQUEST = 400,
   UNAUTHORIZED = 401,
   NOT_FOUND = 404,
+}
+
+export enum PROPERTY_PHOTO_NUM {
+  MIN = 0,
+  MAX = 6,
 }
 
 export const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
