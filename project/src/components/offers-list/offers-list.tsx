@@ -9,7 +9,6 @@ function OffersList() {
     display: 'block',
     margin: '0 auto',
   };
-
   const { offerList, city, isDataLoaded } = useAppSelector((state) => state.reducer);
   const filteredData = offerList.filter((offer) => offer.city.name === city);
 

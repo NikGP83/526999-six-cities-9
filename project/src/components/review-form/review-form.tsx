@@ -1,21 +1,26 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { commentsApi } from '../../services/comments-api';
 import { getToken } from '../../services/token';
 
 function ReviewForm() {
-  const [comment, setComment] = useState('');
+  const [userComment, setUserComment] = useState('');
   const {id} = useParams();
   const [addComment] = commentsApi.useAddCommentMutation();
   const token = getToken();
 
   const handleComment = async() => {
-    await addComment({id, token, comment: 'some comment' });
+    await addComment({id, token, userComment, rating: 5 });
+  };
+
+  const handleSubmit = (e:FormEvent) => {
+    e.preventDefault();
+    setUserComment(e.target.value);
   };
 
 
   return (
-    <form className="reviews__form form" action="#" method="post">
+    <form className="reviews__form form" action="#" method="post" onSubmit={handleSubmit}>
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
@@ -110,7 +115,7 @@ function ReviewForm() {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        onChange={(e) => setComment(e.target.value)}
+        onChange={handleSubmit}
       >
       </textarea>
       <div className="reviews__button-wrapper">

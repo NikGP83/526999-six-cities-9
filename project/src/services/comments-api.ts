@@ -12,11 +12,12 @@ export const commentsApi = createApi({
       }),
     }),
     addComment: build.mutation({
-      query: ({id, token, ...comment}) => ({
+      query: ({id, token, comment, rating}) => ({
         url:`comments/${id}`,
+        comment,
+        rating,
         method: 'POST',
-        body: comment,
-        'x-token': token,
+        headers:{'X-Token': token},
       }),
     }),
   }),

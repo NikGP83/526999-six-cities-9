@@ -4,11 +4,7 @@ import ReviewForm from '../review-form/review-form';
 
 function Reviews() {
   const { id } = useParams();
-  const { data = [] } = commentsApi.useGetCommentsQuery(id);
-  console.log(data)
-  if (!Array.isArray(data)) {
-    return null;
-  }
+  const { data } = commentsApi.useGetCommentsQuery(id);
 
   return (
     <section className="property__reviews reviews">
@@ -16,7 +12,7 @@ function Reviews() {
         Reviews &middot; <span className="reviews__amount">1</span>
       </h2>
       <ul className="reviews__list">
-        {data.map((comment) => (
+        {data && data.map((comment) => (
           <li key={comment.id} className="reviews__item">
             <div className="reviews__user user">
               <div className="reviews__avatar-wrapper user__avatar-wrapper">

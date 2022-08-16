@@ -14,7 +14,7 @@ function Property() {
 
   const {images, title, isPremium, bedrooms, maxAdults, rating, price, type, goods, host, description} = offerList.find((offer) => offer.id === offerId);
 
-  if(!Array.isArray(offerList)){
+  if(offerList.length === 0){
     return null;
   }
 
