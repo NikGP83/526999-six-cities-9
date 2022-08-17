@@ -3,7 +3,7 @@ import Favorites from '../favorites/favorites';
 import Login from '../login/login';
 import MainPage from '../main-page/main-page';
 import PageNotFound from '../page-not-found/page-not-found';
-import Property from '../property/property';
+import Room from '../room/room';
 import { AppRoute } from '../../const';
 import PrivateRoot from '../private-root/private-root';
 import { useAppSelector } from '../../hooks';
@@ -25,7 +25,7 @@ function App() {
             </PrivateRoot>
           }
         />
-        <Route path={AppRoute.Property} element={<Property />} />
+        <Route path={AppRoute.Room} element={<Room />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>

@@ -40,18 +40,19 @@ export interface IHotels {
 }
 
 export interface IUser {
-  avatarUrl: string
-  id: number
-  isPro: boolean
-  name: string
+  avatarUrl: string;
+  id: number;
+  isPro: boolean;
+  name: string;
 }
 
 export interface IComment {
-    comment: string
-    date: string
-    id: number
-    rating: number
-    user: IUser
+    userComment: object;
+    comment: string;
+    date: string;
+    id: number;
+    rating: number;
+    user: IUser;
   }
 
 

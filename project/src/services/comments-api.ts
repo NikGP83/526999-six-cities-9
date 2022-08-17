@@ -15,6 +15,11 @@ export const commentsApi = createApi({
       }),
       providesTags: ['comments'],
     }),
+    getNearbyPlaces: build.query({
+      query: (id) => ({
+        url: `hotels/${id}/nearby`,
+      }),
+    }),
     addComment: build.mutation<IComment[], Pick<IComment, 'id'|'comment'|'rating'> & {token: string} >({
       query: ({id, token, comment, rating}) => ({
         url:`comments/${id}`,
